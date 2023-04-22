@@ -1,0 +1,53 @@
+.add-task-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid gray;
+    padding: 20px;
+    border-radius: 5px;
+    z-index: 1;
+    width: 450px;
+  }
+  
+  .add-task-window label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .add-task-window input[type="text"],
+  .add-task-window select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    font-size: 1em;
+  }
+  
+  .add-task-window .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .add-task-window .button-container button {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 3px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+  
+  .add-task-window .button-container .cancel-button {
+    background-color: #ccc;
+    color: white;
+  }
+  
+  .add-task-window .button-container .save-button {
+    background-color: green;
+    color: white;
+  }
+  
