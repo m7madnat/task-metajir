@@ -65,6 +65,7 @@ const Wrapper = styled.div`
 function TaskForm() {
   const [tasks, setTasks] = useState([]);
   const [filteredTasks, setFilteredTasks] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [sortBy, setSortBy] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [sortOrder, setSortOrder] = useState("asc");
