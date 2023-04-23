@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const devUrl = "http://localhost:5001/api";
-const prodUrl = "https://m7mad-task.onrender.com/api";
+let myUrl = "http://localhost:5001/api";
 
-let myUrl = process.env.NODE_ENV === "production" ? prodUrl : devUrl;
-
+if (process.env.NODE_ENV === "production") {
+  myUrl = "https://m7mad-task.onrender.com/api";
+}
 export const Api = axios.create({
   baseURL: myUrl,
 });
