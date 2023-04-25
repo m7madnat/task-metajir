@@ -67,12 +67,15 @@ function AddTaskWindow(props) {
           </div>
           <div>
             <label htmlFor="priority">Priority:</label>
-            <input
-              type="text"
+            <select
               id="priority"
               value={priority}
               onChange={(e) => setPriority(e.target.value)}
-            />
+            >
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
           </div>
           <div>
             <label htmlFor="status">Status:</label>
