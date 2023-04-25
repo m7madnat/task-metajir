@@ -1,31 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { Api } from "../api/Api";
-import "../components/TaskForm.css";
 import AddTaskWindow from "./AddTaskWindow.js";
 import EditTask from "./EditTask.js";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f4f4f4;
   font-family: Arial, sans-serif;
-
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    margin-right: 1rem;
-    cursor: pointer;
-
-    &:hover {
-      background-color: #0069d9;
-    }
-  }
 
   h1 {
     font-size: 2rem;
-    margin-top: 2rem;
     margin-bottom: 1rem;
+  }
+
+  select {
+    padding: 0.5rem;
+    margin-left: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    color: #555;
+  }
+  button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+
+    &:hover {
+      background-color: #3e8e41;
+    }
   }
 
   label {
@@ -48,6 +64,7 @@ const Wrapper = styled.div`
     text-align: center;
     border: 1px solid #ced4da;
     width: 250px;
+    max-width: 200px;
   }
 
   th {
@@ -110,14 +127,6 @@ function TaskForm() {
 
   return (
     <Wrapper>
-      <button onClick={handleToggleForm}>
-        {isVisible ? "Hide a new Task" : "Create a new Task"}
-      </button>
-      {isVisible && (
-        <>
-          <AddTaskWindow onAddTask={handleAddTask} />
-        </>
-      )}
       <h1>Task List</h1>
       <div>
         <label>Filter by Type:</label>
@@ -131,16 +140,21 @@ function TaskForm() {
       <table>
         <th>
           <td>
-            <tr>Title</tr>
+            <div className="table-header">Title</div>
           </td>
           <td>
-            <tr>Description</tr>
+            <div className="table-header">Description</div>
           </td>
-          <th>Type</th>
-          <th onClick={handleDueDateSort}>Due Date ▲▼</th>
-          <th>Priority</th>
-          <th>Status</th>
-          <th>Action</th>
+          <th className="table-header">Type</th>
+          <th className="table-header" onClick={handleDueDateSort}>
+            <div className="table-header">
+              Due Date
+              <span className="sort-icon">▲▼</span>
+            </div>
+          </th>
+          <th className="table-header">Priority</th>
+          <th className="table-header">Status</th>
+          <th className="table-header">Action</th>
         </th>
         {filteredTasks.map((task) => (
           <tr key={task._id}>
@@ -148,6 +162,17 @@ function TaskForm() {
           </tr>
         ))}
       </table>
+      <button onClick={handleToggleForm}>
+        {isVisible ? "Hide a new Task" : "Create a new Task"}
+      </button>
+      {isVisible && (
+        <>
+          <AddTaskWindow
+            onAddTask={handleAddTask}
+            handleToggleForm={handleToggleForm}
+          />
+        </>
+      )}
     </Wrapper>
   );
 }

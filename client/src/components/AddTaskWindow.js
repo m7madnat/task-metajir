@@ -17,11 +17,15 @@ function AddTaskWindow(props) {
     props.onAddTask(result.data);
   };
 
+  const handleToggleForm = () => {
+    props.handleToggleForm();
+  };
+
   return (
     <div className="modal">
       <div className="add-task-window">
         <h2>Add Task</h2>
-        <form onSubmit={handleSubmit}>
+        <form>
           <div>
             <label htmlFor="title">Title:</label>
             <input
@@ -83,7 +87,12 @@ function AddTaskWindow(props) {
             </select>
           </div>
           <div className="buttons">
-            <button type="submit">Add Task</button>
+            <button type="submit" onClick={handleSubmit}>
+              Add Task
+            </button>
+            <button type="submit" onClick={handleToggleForm}>
+              Close Task
+            </button>
           </div>
         </form>
       </div>

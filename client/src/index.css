@@ -1,0 +1,42 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  th:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  th:hover {
+    cursor: pointer;
+    background-color: #ddd;
+  }
+  
+  th:hover .sort-icon {
+    opacity: 1;
+  }
+  
+  .sort-icon {
+    opacity: 0.3;
+    margin-left: 8px;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .sort-icon.up {
+    transform: rotate(180deg);
+  }
+  

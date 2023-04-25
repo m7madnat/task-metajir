@@ -42,9 +42,13 @@ function EditTask({ task, onDelete, onUpdate, handleDueDateSort }) {
 
     window.location.reload();
   };
-
+  
   return (
-    <table>
+    <table
+      style={{
+        color: editedTask.status === "completed" ? "red" : "black",
+      }}
+    >
       {isEditing ? (
         <>
           <td>
